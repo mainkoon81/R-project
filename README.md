@@ -1,13 +1,25 @@
 # R-project
 
-Multivariate_Analysis / Machine Learning playground with R
+## Multivariate_Analysis / Machine Learning playground with R
 
-[Contents] Lab-01. Association Rule Mining *package: arules *func:
+**[Contents]** 
 
-Lab-02. Clustering *package: cluster, e1071, mclust *func:
+__Lab-01.__ Association Rule Mining 
+  - package: arules 
+  - func:
 
-Lab-03. Regression *package: *func:
+__Lab-02.__ Clustering 
+  - package: cluster, e1071, mclust 
+  - func:
 
-Lab-04. Classification *package: MASS, nnet, ROCR, rpart, party, adabag, randomForest, *func:
+__Lab-03.__ Regression 
+  - package: 
+  - func:
 
-Lab-05. Dimension Reduction *package: Mass, vegan, *func:
+__Lab-04.__ Classification 
+  - package: MASS, nnet, ROCR, rpart, party, adabag, randomForest, 
+  - func:
+
+__Lab-05.__ Dimension Reduction 
+  - package: Mass, vegan, 
+  - func:
