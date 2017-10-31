@@ -2,7 +2,7 @@
 
 ## Multivariate_Analysis / Machine Learning playground with R
 
-**### [Contents]** 
+### [Contents] 
 
 __Lab-01.__ Association Rule Mining 
   - package: arules 
