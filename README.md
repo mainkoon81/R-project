@@ -42,8 +42,7 @@ __Note:__ We need to get the data into an appropriate binary format (from Y's an
 
 -------------------------------------------------------------------------------
 
-<img src="https://user-images.githubusercontent.com/31917400/32504026-b28a518e-c3d6-11e7-93b6-9c8ad96a3d8a.jpg
-" />
+<img src="https://user-images.githubusercontent.com/31917400/32504026-b28a518e-c3d6-11e7-93b6-9c8ad96a3d8a.jpg" />
 
 #### >Lab-03. Regression
 
