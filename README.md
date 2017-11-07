@@ -51,6 +51,7 @@ fit<-apriori(transvote_Y, parameter=list(support=0.3, minlen=1, maxlen=10))
 fit<-sort(fit,by="support")
 inspect(fit)
 ```
+<img src="https://user-images.githubusercontent.com/31917400/32521319-f7470400-c40a-11e7-9b57-46d36f3a3284.jpg" />
 <img src="https://user-images.githubusercontent.com/31917400/32520233-2cf894be-c407-11e7-8a6e-20271aa4069d.jpg" />
 
 - __Interpretation:__ Looking at the dataset in the transaction format overall, we notice these 13 politicians out of 166 in total – Caolin Caoimhgh, Snodaigh Aengus, Colreavy Michael, Dooley Timmy, Fitzmaurice Michael, Healy-Rae Michael, Mathews Peter, McConalogue Charlie, McGrath Finian, McLellan Sandra, Murphy Catherine, Sullivan Maureen, Wallace Mick – show a higher tendency to vote yes (13 to 14 times) in favour of the motions  while 28 politicians out of 166 in total -  Bannon James, Barrett, Collins Joan, Conlan, Coppinger Ruth, Creighton Lucinda,  Crowe, Ellis Dessie, Ferris Martin, Flanagan Terence, Gilmore Eamon, Higgins Joe, Keaveney Colm, Kelly Alan, Kenny Enda, Lowry Michael, Maloney Eamonn, McDonald Mary Lou, McLoughlin Tony, Murphy Paul, Noonan Michael, Dea Willie, Penrose Willie, Perry John, Shatter Alan, Smith Brendan,  Stanley Brian, Timmins Billy – hardly voted to yes (never or just once) on any propositions. 
@@ -73,6 +74,7 @@ fit<-apriori(transvote_N, parameter=list(support=0.3, minlen=3))
 fit<-sort(fit,by="support")
 inspect(fit)
 ```
+<img src="https://user-images.githubusercontent.com/31917400/32521327-fad294ae-c40a-11e7-8e3a-7e296df5ac13.jpg" />
 <img src="https://user-images.githubusercontent.com/31917400/32520365-a3d9d6b0-c407-11e7-9934-0a590c4aa83a.jpg" />
 
 - __Interpretation:__ There are several rules that attract our attention. ‘Support’ threshold greater than 0.3 reveals two different groups of associations rules between No-votes. One is for the motion 18, 19, 20 and the other is for the motion 10, 11, 12, 13, 14, but the first one manifests slightly stronger correlation. The motion 18, 19, 20 are all about criminal justice and the motion 10, 11, 12, 13, 14 address consistently some issues arising from the dissolution of certain educational institution. We can say that the Irish politicians shows certain consistency in voting behaviour for the motions in similar threads. In sum, this association rule analysis can be seen successful. This is because its result and those suggested association rules effectively picked up a series of the political motions possibly in similar threads and they are clearly in concordance with actual data recorded in the website. Therefore, it is safe to say that those association rules yielded by a priori algorithm turn out to be a reliable source of reference to predict the pattern of behaviour of Irish politicians.    
