@@ -17,10 +17,9 @@ __Lab-03.__ Regression
   - func:
 
 ----------------------------------------------------------------------
+#### >Lab-01. Association Rule Mining
 
 <img src="https://user-images.githubusercontent.com/31917400/32491154-907d38fa-c3ad-11e7-95a2-7a5ce5588d81.jpg" />
-
-#### >Lab-01. Association Rule Mining
 
 __Data:__ The Data were collected recording votes in the Irish parliament (D´ailEireann), prior to the general election, in early 2016. Extra details of the votes can be found at (http://www.oireachtas.ie/parliament/) and the data are for the votes on January 14th-28th.
 
@@ -79,13 +78,12 @@ inspect(fit)
 
 - __Interpretation:__ There are several rules that attract our attention. ‘Support’ threshold greater than 0.3 reveals two different groups of associations rules between No-votes. One is for the motion 18, 19, 20 and the other is for the motion 10, 11, 12, 13, 14, but the first one manifests slightly stronger correlation. The motion 18, 19, 20 are all about criminal justice and the motion 10, 11, 12, 13, 14 address consistently some issues arising from the dissolution of certain educational institution. We can say that the Irish politicians shows certain consistency in voting behaviour for the motions in similar threads. In sum, this association rule analysis can be seen successful. This is because its result and those suggested association rules effectively picked up a series of the political motions possibly in similar threads and they are clearly in concordance with actual data recorded in the website. Therefore, it is safe to say that those association rules yielded by a priori algorithm turn out to be a reliable source of reference to predict the pattern of behaviour of Irish politicians.    
 -------------------------------------------------------------------------------
+#### >Lab-02. Clustering
 
 <img src="https://user-images.githubusercontent.com/31917400/32509308-d95aa8be-c3e4-11e7-9be4-02d14275584a.jpg" />
 <img src="https://user-images.githubusercontent.com/31917400/32509312-e00f8c2e-c3e4-11e7-889a-d7dd939d8200.jpg" />
 <img src="https://user-images.githubusercontent.com/31917400/32509335-ea0fb2d0-c3e4-11e7-98b1-8f38c29c2285.jpg" />
 <img src="https://user-images.githubusercontent.com/31917400/32509335-ea0fb2d0-c3e4-11e7-98b1-8f38c29c2285.jpg" />
-
-#### >Lab-02. Clustering
 
 __Data:__ The Data were collected recording votes in the Irish parliament (D´ailEireann), prior to the general election, in early 2016. Extra details of the votes can be found at (http://www.oireachtas.ie/parliament/) and the data are for the votes on January 14th-28th.
 
