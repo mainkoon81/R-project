@@ -25,8 +25,7 @@ __Lab-05.__ Dimension Reduction
   - func:
 ----------------------------------------------------------------------
 
-<img src="https://user-images.githubusercontent.com/31917400/32451453-ba628d9a-c30e-11e7-8354-5bf0e6351074.jpg" width="250" height="200" />
-<img src="https://user-images.githubusercontent.com/31917400/32451451-b9b56e30-c30e-11e7-92d2-bb606920c73b.jpg" width="250" height="290" />
+<img src="https://user-images.githubusercontent.com/31917400/32491154-907d38fa-c3ad-11e7-95a2-7a5ce5588d81.jpg" />
 
 #### >Lab-01. Association Rule Mining
 
