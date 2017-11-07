@@ -85,14 +85,18 @@ inspect(fit)
 
 __Data:__ The International Association of Ultrarunners (IAU) world championship, World Masters Athletics (WMA) world championship and an open race (OP) over 100 km were held simultaneously in Los Alcazares, Spain on 27th November 2016. The course of the race consisted of 10×10km lap. The lap speed (in metres per second) of each competitor was recorded at the end of each of the 10 laps. The race entered (IAU, WMA and OP) and the gender of the athlete (M and F) are also recorded. Extra details of the votes can be found at (http://100kworldchampionship2016.com/)  
 
-__Story:__ We want to analyze the data to establish if there are clusters of athletes with similar lap speeds throughout the race, and investigate if the clusters correspond to the type of race entered or the gender of the athlete.
+__Story:__ We want to analyze the data to establish if there are clusters of athletes with similar lap speeds throughout the race, and investigate if the clusters correspond to the type of race entered or the gender of the athlete. 
 
-#### *|Data Analysis|*
+#### *|K-means Clustering|*
 
 <img src="https://user-images.githubusercontent.com/31917400/32523548-adc68248-c413-11e7-88f0-861e2bad997c.jpg" />
 
-- __issue:__ We can see that there are two levels - male, female - in the “Sex” variable and three levels - IAU, OP, WMA - in the “Class” variable. We’d like to see that if our result of clustering analysis would correspond to those levels. But how many “k” do we need? We want to make our clusters as tight as possible in order to improve the accuracy of our clustering analysis and this goal seems to be achievable by minimizing Sum of Squares. Interestingly, the value of Sum of Squares diminishes as we have more clusters which is represented by the value of “k.” Therefore, what we need is the plot of “k”values against the Sum of Squares so that we can find the elbow of the curve that manifesting the most desirable ‘”k” value.
+- __issue:__ We can see that there are two levels - male, female - in the “Sex” variable and three levels - IAU, OP, WMA - in the “Class” variable. We’d like to see that if our result of clustering analysis would correspond to those levels. But how many “k” do we need? K=2 or K=3 ? We want to make our clusters as tight as possible in order to improve the accuracy of our clustering analysis and this goal seems to be achievable by minimizing Sum of Squares. Interestingly, the value of Sum of Squares diminishes as we have more clusters which is represented by the value of “k.” Therefore, what we need is the plot of “k”values against the Sum of Squares so that we can find the elbow of the curve that manifesting the most desirable ‘”k” value. 
 
+- **[Searching the best 'K']**
+```
+X.new = X[, 1:10]
+plot(X.new) #extracting the numerical variables of interest#
 
 
 
