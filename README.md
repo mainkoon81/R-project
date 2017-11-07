@@ -82,8 +82,6 @@ inspect(fit)
 
 <img src="https://user-images.githubusercontent.com/31917400/32509308-d95aa8be-c3e4-11e7-9be4-02d14275584a.jpg" />
 <img src="https://user-images.githubusercontent.com/31917400/32509312-e00f8c2e-c3e4-11e7-889a-d7dd939d8200.jpg" />
-<img src="https://user-images.githubusercontent.com/31917400/32509335-ea0fb2d0-c3e4-11e7-98b1-8f38c29c2285.jpg" />
-<img src="https://user-images.githubusercontent.com/31917400/32509335-ea0fb2d0-c3e4-11e7-98b1-8f38c29c2285.jpg" />
 
 __Data:__ The Data were collected recording votes in the Irish parliament (D´ailEireann), prior to the general election, in early 2016. Extra details of the votes can be found at (http://www.oireachtas.ie/parliament/) and the data are for the votes on January 14th-28th.
 
