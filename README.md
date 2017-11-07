@@ -16,13 +16,6 @@ __Lab-03.__ Regression
   - package: 
   - func:
 
-__Lab-04.__ Classification 
-  - package: MASS, nnet, ROCR, rpart, party, adabag, randomForest, 
-  - func:
-
-__Lab-05.__ Dimension Reduction 
-  - package: Mass, vegan, 
-  - func:
 ----------------------------------------------------------------------
 
 <img src="https://user-images.githubusercontent.com/31917400/32491154-907d38fa-c3ad-11e7-95a2-7a5ce5588d81.jpg" />
