@@ -144,10 +144,14 @@ classAgreement(tab)
 
 <img src="https://user-images.githubusercontent.com/31917400/32525455-73a66bce-c41c-11e7-9b8e-5bbd09ec8f13.jpg" />
 
+
 - **[Investigation II: Are those similar lap speeds associated with genders? (k=2)]**
+
 
 ```
 
+
+```
 
 
 
