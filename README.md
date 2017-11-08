@@ -276,6 +276,21 @@ plot(pred, residuals(fit, type = 'pearson'))
 ```
 <img src="https://user-images.githubusercontent.com/31917400/32558345-6bc06d58-c49c-11e7-82cf-baf11f456114.jpeg" width="600" height="200" />
 
+- **[Goodness of Fit]**
+
+The deviance goodness of fit test-statistic is already given in the output from the glm() through `summary(fit)`.
+```
+##Using 'HLtest()' in the 'binomTools' package to complete the Hosmer-Lemeshow goodness-of-fit test##
+install.packages("binomTools")
+library(binomTools)
+
+##The 'HLtest()'for HL and 'X2GOFtest()'for Pearson needs the logistic regression output to be put into Rsq##
+HLtest(Rsq(fit))
+X2GOFtest(Rsq(fit))
+```
+<img src="https://user-images.githubusercontent.com/31917400/32558964-f79391d8-c49d-11e7-94e3-afa31c590718.jpg" width="600" height="280" />
+
+- **[Performance]**
 
 
 
