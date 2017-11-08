@@ -206,7 +206,7 @@ for(b in 1:BS) {
 ##compute summaries from our output to get a feeling for what k to use (summaries for the within SS for each k)## 
 apply(result,2,summary)
 
-##Compute the 2.5%, 50% and 97.5% quantiles of the statistic for each k 
+##Compute the 2.5%, 50% and 97.5% quantiles of the statistic for each k## 
 withinss = apply(result, 2, quantile, probs=c(0.025, 0.5, 0.975)); withinss
 matplot(t(withinss))
 ```
@@ -237,7 +237,7 @@ __Story:__ No story, Just practice logistic regression!
 
 #### *|Basic Logistic Regression|*
 
-<img src="https://user-images.githubusercontent.com/31917400/32555369-6fc669be-c494-11e7-97d6-edc6c417ad7b.jpg" />
+<img src="https://user-images.githubusercontent.com/31917400/32555369-6fc669be-c494-11e7-97d6-edc6c417ad7b.jpg" width="600" height="110" />
 
 ```
 #Ensure that "any categorical variables" are coded as factors##
@@ -249,13 +249,13 @@ fit <- glm(low~age+lwt+race+smoke+ptl+ht+ui+ftv, data=birthwt, family = 'binomia
 
 ##the fitted value from the model, but it is still the values of "log odd"## 
 pred <- predict(fit); head(pred, 10) 
-##the fitted value from the model, and the final predicted probabilities by each row
+##the fitted value from the model, and the final predicted probabilities by each row##
 pred <- predict(fit, type = 'response'); head(pred, 10) 
 
 ##Extract the coefficients of the model and Compute the probabilities## 
 beta<-coef(fit)
 exp(beta)
-##Compute a 95% confidence interval for coefficients & probabilities. qt()is a t-statisitics..
+##Compute a 95% confidence interval for coefficients & probabilities. qt()is a t-statisitics##
 summ<-summary(fit)
 betaLB<-summ$coef[,1] - qt(0.975,summ$df.residual)*summ$coef[,2] 
 betaUB<-summ$coef[,1] + qt(0.975,summ$df.residual)*summ$coef[,2]
@@ -264,7 +264,7 @@ BETA<-cbind(betaLB,beta,betaUB)
 ##Compute the odds & confidence limits for the odds## 
 exp(BETA)
 ```
-<img src="https://user-images.githubusercontent.com/31917400/32556787-44954a68-c498-11e7-8cac-8cdba3d95adc.jpg" />
+<img src="https://user-images.githubusercontent.com/31917400/32556787-44954a68-c498-11e7-8cac-8cdba3d95adc.jpg" width="600" height="560" />
 
 - **[Residual analysis]**
 
