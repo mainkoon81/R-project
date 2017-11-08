@@ -117,7 +117,8 @@ plot(1:6, WGSS, type = 'b', xlab = 'k', ylab = 'wgSS')
 **The k versus WGSS plot suggests k = 2 is the best clustering solution.**
 <img src="https://user-images.githubusercontent.com/31917400/32524508-09c66fdc-c418-11e7-9b0e-9e304ab9fc8c.jpeg" width="600" height="300" />
 
-- **[Investigation I: Are those similar lap speeds associated with races-IAU/OP/WMA? (k=3)]**
+- **[Actual Investigation I: Are those similar lap speeds associated with races-IAU/OP/WMA? (k=3)]**
+
 More precisely, we compare the clustering result with the “class” variable in the original dataset, using cross tabulation and Rand Index.  
 ```
 ## kmeans() takes the dataset (k=3)##
@@ -145,7 +146,8 @@ classAgreement(tab)
 <img src="https://user-images.githubusercontent.com/31917400/32525455-73a66bce-c41c-11e7-9b8e-5bbd09ec8f13.jpg" />
 
 
-- **[Investigation II: Are those similar lap speeds associated with genders? (k=2)]**
+- **[Actual Investigation II: Are those similar lap speeds associated with genders? (k=2)]**
+
 
 
 ```
