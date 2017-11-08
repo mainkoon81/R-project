@@ -19,7 +19,7 @@ __Lab-03.__ Regression
 ----------------------------------------------------------------------
 #### >Lab-01. Association Rule Mining
 
-<img src="https://user-images.githubusercontent.com/31917400/32491154-907d38fa-c3ad-11e7-95a2-7a5ce5588d81.jpg" />
+<img src="https://user-images.githubusercontent.com/31917400/32491154-907d38fa-c3ad-11e7-95a2-7a5ce5588d81.jpg" width="600" height="200" />
 
 __Data:__ The Data were collected recording votes in the Irish parliament (D´ailEireann), prior to the general election, in early 2016. Extra details of the votes can be found at (http://www.oireachtas.ie/parliament/) and the data are for the votes on January 14th-28th.
 
@@ -30,7 +30,7 @@ What we focus on, in the beginning, is to find association pattern that reveals 
 
 #### *|Data Wrangling + Mining|*
 
-<img src="https://user-images.githubusercontent.com/31917400/32518404-5a73d148-c401-11e7-909f-0817c2f1cfde.jpg" />
+<img src="https://user-images.githubusercontent.com/31917400/32518404-5a73d148-c401-11e7-909f-0817c2f1cfde.jpg" width="600" height="200" />
 
 - __issue:__ We need to get the data into an appropriate binary format (from Y's and N's to 1’s and 0’s) before analysis, then set it up in transaction format. The matrix is not a numeric binary matrix. Once converting the data into 1 and 0 and doing a `summary(data)` we see that the matrix is reading the columns in as factor variables and is not a numeric matrix. To convert the matrix as a numeric matrix, we use the command `as.numeric` on each column in the dataset.
 
@@ -50,8 +50,8 @@ fit<-apriori(transvote_Y, parameter=list(support=0.3, minlen=1, maxlen=10))
 fit<-sort(fit,by="support")
 inspect(fit)
 ```
-<img src="https://user-images.githubusercontent.com/31917400/32521319-f7470400-c40a-11e7-9b57-46d36f3a3284.jpg" />
-<img src="https://user-images.githubusercontent.com/31917400/32520233-2cf894be-c407-11e7-8a6e-20271aa4069d.jpg" />
+<img src="https://user-images.githubusercontent.com/31917400/32521319-f7470400-c40a-11e7-9b57-46d36f3a3284.jpg" width="600" height="200" />
+<img src="https://user-images.githubusercontent.com/31917400/32520233-2cf894be-c407-11e7-8a6e-20271aa4069d.jpg" width="600" height="200" />
 
 - __Interpretation:__ Looking at the dataset in the transaction format overall, we notice these 13 politicians out of 166 in total – Caolin Caoimhgh, Snodaigh Aengus, Colreavy Michael, Dooley Timmy, Fitzmaurice Michael, Healy-Rae Michael, Mathews Peter, McConalogue Charlie, McGrath Finian, McLellan Sandra, Murphy Catherine, Sullivan Maureen, Wallace Mick – show a higher tendency to vote yes (13 to 14 times) in favour of the motions  while 28 politicians out of 166 in total -  Bannon James, Barrett, Collins Joan, Conlan, Coppinger Ruth, Creighton Lucinda,  Crowe, Ellis Dessie, Ferris Martin, Flanagan Terence, Gilmore Eamon, Higgins Joe, Keaveney Colm, Kelly Alan, Kenny Enda, Lowry Michael, Maloney Eamonn, McDonald Mary Lou, McLoughlin Tony, Murphy Paul, Noonan Michael, Dea Willie, Penrose Willie, Perry John, Shatter Alan, Smith Brendan,  Stanley Brian, Timmins Billy – hardly voted to yes (never or just once) on any propositions. 
 The Apriori algorithm gives us several rules with ‘Support’ threshold greater than 0.3 and it shows that there is a strong relationship between “Yes-votes to the motion 4, 5, 21, 22.” 
@@ -73,8 +73,8 @@ fit<-apriori(transvote_N, parameter=list(support=0.3, minlen=3))
 fit<-sort(fit,by="support")
 inspect(fit)
 ```
-<img src="https://user-images.githubusercontent.com/31917400/32521327-fad294ae-c40a-11e7-8e3a-7e296df5ac13.jpg" />
-<img src="https://user-images.githubusercontent.com/31917400/32520365-a3d9d6b0-c407-11e7-9934-0a590c4aa83a.jpg" />
+<img src="https://user-images.githubusercontent.com/31917400/32521327-fad294ae-c40a-11e7-8e3a-7e296df5ac13.jpg" width="600" height="200" />
+<img src="https://user-images.githubusercontent.com/31917400/32520365-a3d9d6b0-c407-11e7-9934-0a590c4aa83a.jpg" width="600" height="200" />
 
 - __Interpretation:__ There are several rules that attract our attention. ‘Support’ threshold greater than 0.3 reveals two different groups of associations rules between No-votes. One is for the motion 18, 19, 20 and the other is for the motion 10, 11, 12, 13, 14, but the first one manifests slightly stronger correlation. The motion 18, 19, 20 are all about criminal justice and the motion 10, 11, 12, 13, 14 address consistently some issues arising from the dissolution of certain educational institution. We can say that the Irish politicians shows certain consistency in voting behaviour for the motions in similar threads. In sum, this association rule analysis can be seen successful. This is because its result and those suggested association rules effectively picked up a series of the political motions possibly in similar threads and they are clearly in concordance with actual data recorded in the website. Therefore, it is safe to say that those association rules yielded by a priori algorithm turn out to be a reliable source of reference to predict the pattern of behaviour of Irish politicians.    
 -------------------------------------------------------------------------------
@@ -89,7 +89,7 @@ __Story:__ We want to analyze the data to establish if there are clusters of ath
 
 #### *|K-means Clustering|*
 
-<img src="https://user-images.githubusercontent.com/31917400/32523548-adc68248-c413-11e7-88f0-861e2bad997c.jpg" />
+<img src="https://user-images.githubusercontent.com/31917400/32523548-adc68248-c413-11e7-88f0-861e2bad997c.jpg" width="600" height="170" />
 
 - __issue:__ We can see that there are two levels - male, female - in the “sex” variable and three levels - IAU, OP, WMA - in the “class” variable. We’d like to see that if our result of clustering analysis would correspond to those levels. But how many “k” do we need? K=2 or K=3 ? We want to make our clusters as tight as possible in order to improve the accuracy of our clustering analysis and this goal seems to be achievable by minimizing Sum of Squares. Interestingly, the value of Sum of Squares diminishes as we have more clusters which is represented by the value of “k.” Therefore, what we need is the plot of “k”values against the Sum of Squares so that we can find the elbow of the curve that manifesting the most desirable ‘”k” value. 
 
@@ -115,7 +115,7 @@ for(k in 2:6){
 plot(1:6, WGSS, type = 'b', xlab = 'k', ylab = 'wgSS')
 ```
 **The k versus WGSS plot suggests k = 2 is the best clustering solution.**
-<img src="https://user-images.githubusercontent.com/31917400/32524508-09c66fdc-c418-11e7-9b0e-9e304ab9fc8c.jpeg" width="600" height="300" />
+<img src="https://user-images.githubusercontent.com/31917400/32524508-09c66fdc-c418-11e7-9b0e-9e304ab9fc8c.jpeg" width="500" height="250" />
 
 - **[Actual Investigation I: Are those similar lap speeds associated with races-IAU/OP/WMA? (k=3)]**
 
