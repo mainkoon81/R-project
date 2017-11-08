@@ -278,7 +278,8 @@ plot(pred, residuals(fit, type = 'pearson'))
 
 - **[Goodness of Fit]**
 
-The deviance goodness of fit test-statistic is already given in the output from the glm() through `summary(fit)`.
+The deviance goodness of fit test-statistic is already given in the output from the glm() through `summary(fit)`. Fnd the ”Residual Deviance” value.
+
 ```
 ##Using 'HLtest()' in the 'binomTools' package to complete the Hosmer-Lemeshow goodness-of-fit test##
 install.packages("binomTools")
