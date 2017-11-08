@@ -12,7 +12,7 @@ __Lab-02.__ Clustering
   - package: cluster, e1071, mclust 
   - func: `kmean()`,  
 
-__Lab-03.__ Regression as Classification
+__Lab-03.__ Regression as Classification method
   - package: MASS, binomTools, nnet, ROCR
   - func: `glm()`, `multinom()` 
 
@@ -216,7 +216,7 @@ matplot(t(withinss))
 
 
 -------------------------------------------------------------------------------
-#### >Lab-03. Regression as Classification
+#### >Lab-03. Regression as Classification method
 
 <img src="https://user-images.githubusercontent.com/31917400/32504026-b28a518e-c3d6-11e7-93b6-9c8ad96a3d8a.jpg" />
 
