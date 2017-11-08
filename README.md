@@ -13,8 +13,8 @@ __Lab-02.__ Clustering
   - func: `kmean()`,  
 
 __Lab-03.__ Regression 
-  - package: MASS, binomTools, ROCR
-  - func:
+  - package: MASS, binomTools, nnet, ROCR
+  - func: `glm()`, `multinom()` 
 
 ----------------------------------------------------------------------
 #### >Lab-01. Association Rule Mining
@@ -220,10 +220,25 @@ matplot(t(withinss))
 
 <img src="https://user-images.githubusercontent.com/31917400/32504026-b28a518e-c3d6-11e7-93b6-9c8ad96a3d8a.jpg" />
 
-__Data:__ 
+__Data:__ Within the 'MASS' library, there is a dataset called 'birthwt' collected at Baystate Medical Center, Springﬁeld, MA during 1986. UCD data mining class provided this dataset to practice logistic regression.  
 
+__Story:__ No story, Just practice logistic regression! 
+  - 'low' indicator of birth weight less than 2.5kg 
+  - 'age' mother's age in years 
+  - 'lwt' mother's weight in pounds at last menstrual period 
+  - 'race' mother's race (1= white, 2 = black, 3 = other) /////////////////categorical(multi)
+  - 'smoke' smoking status during pregnancy (1=Yes, 0=No) /////////////////categorical
+  - 'ptl' number of previous premature labours (0, 1, 2, ...) 
+  - 'ht' history of hypertension (1=Yes, 0=No) ////////////////////////////categorical
+  - 'ui' presence of uterine irritability (1=Yes, 0=No) ///////////////////categorical
+  - 'ftv' number of physician visits during the ???rst trimester (0, 1, 2, ...)
+  - 'bwt' baby weight? so save it for later..
 
+#### *|Basic Logistic Regression|*
 
+<img src="https://user-images.githubusercontent.com/31917400/32555369-6fc669be-c494-11e7-97d6-edc6c417ad7b.jpg" />
+
+```
 
 
 
