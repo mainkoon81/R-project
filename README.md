@@ -143,18 +143,33 @@ classAgreement(tab)
 
 **As we expected, the Silhouette plot reveals unreliability of the k=3 clustering result by presenting the negative silhouette width in the second cluster** (rand index value: 0.5782136). As seen in the output as follows, there is no consistency in the matching pattern between the actual clusters in the dataset and estimated clusters produced by k=3 means algorithm. Therefore, we can conclude that there is no notable connection between the recorded lap speed of athletes and the type of races - IAU, OP, WMA. 
 
-<img src="https://user-images.githubusercontent.com/31917400/32525455-73a66bce-c41c-11e7-9b8e-5bbd09ec8f13.jpg" />
+<img src="https://user-images.githubusercontent.com/31917400/32546229-49220e94-c476-11e7-9064-697a91f9dd9c.jpg" />
 
 
 - **[Actual Investigation II: Are those similar lap speeds associated with genders? (k=2)]**
 
+Comparing the clustering result with the “class” variable in the original dataset, using cross tabulation and Rand Index.  
+```
+## kmeans() takes the dataset (k=2)##
+kmcl.X <- kmeans(X.new, centers = 2, nstart = 100); kmcl.X 
+table(kmcl.X$cluster)
 
+##Computing the silhouette for each observation.##
+sil.gen <- silhouette(kmcl.X$cluster, dist.lap); plot(sil.gen)
 
+##when k=2, in order to compare the clustering results to the class, we extract the column: "genders"##
+colvec.gen <- as.numeric(X[,12])
+
+##tabulating the results##
+tab <- table(colvec.gen, kmcl.X$cluster); tab
+
+##Computing the Rand and adjusted Rand indices## 
+classAgreement(tab)
 ```
 
+In this plot below, there is no negative silhouette width and we can say that k=2 means clustering works ok (rand index value: 0.5048549). 
 
-```
-
+<img src="https://user-images.githubusercontent.com/31917400/32546386-d3b04c6a-c476-11e7-80f0-97ff7659b5ed.jpg" />
 
 
 
