@@ -131,7 +131,7 @@ dist.lap <- dist(X.new, 'euclidean')^2
 ##Computing the silhouette for each observation.##
 sil.race <- silhouette(kmcl.X$cluster, dist.lap); plot(sil.race)
 
-##when k=3, in order to compare the clustering results to the class, we extract the column: "races"##
+##when k=3, in order to compare the clustering results to the class, we extract the column: "class"##
 colvec.race <- as.numeric(X[,11])
 
 ##tabulating the results##
@@ -157,7 +157,7 @@ table(kmcl.X$cluster)
 ##Computing the silhouette for each observation.##
 sil.gen <- silhouette(kmcl.X$cluster, dist.lap); plot(sil.gen)
 
-##when k=2, in order to compare the clustering results to the class, we extract the column: "genders"##
+##when k=2, in order to compare the clustering results to the class, we extract the column: "sex"##
 colvec.gen <- as.numeric(X[,12])
 
 ##tabulating the results##
