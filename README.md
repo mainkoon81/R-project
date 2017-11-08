@@ -171,15 +171,48 @@ In this plot below, there is no negative silhouette width and we can say that k=
 
 <img src="https://user-images.githubusercontent.com/31917400/32546386-d3b04c6a-c476-11e7-80f0-97ff7659b5ed.jpg" />
 
-> When we did k-means clustering, we used the total within sum of squares to choose an appropriate value of k, but It was diﬃcult to decide when there was an “elbow” in the plot. We could use **bootstrapping to estimate the variability of the within sum of squares.** We could then use the values to establish what value of k might be most appropriate.
+> **Bootstrap:** When we did k-means clustering, we used the total within sum of squares to choose an appropriate value of k, but It was difficult to decide when there was an “elbow” in the plot. We could use **bootstrapping** to estimate the variability of the **within sum of squares.** We could then use the values to establish what value of k might be most appropriate. In Bootstrapping, we generate the randome samples from the sampling distribution PDF(area=probability) -'f(x)' that comes from the empirical CDF(height=probability) -"F(X)" which is only estimated from our original dataset.  
 
 <img src="https://user-images.githubusercontent.com/31917400/32548095-5fac9912-c47c-11e7-958b-4f9c5782f28a.JPG" />
 
 ```
+##Count how many observations are in the original dataset##
+n = nrow(X.new)
 
+##Decide how many bootstrap samples to take##
+BS = 100
 
+##Choose the maximum number of clusters to fit##
+kmax = 10
 
+##Set up a matrix to store the results##
+result = matrix(n,BS,kmax)
+
+##Loop over the number of bootstrap samples (from 1 to BS) and the number of clusters from 1 to Kmax 'k'##
+##Sample the observation indices with replacement##
+##Make a copy of the data with each observation occurring as often as its index happens##
+##Run k-means for this value of k. Do 4 random starts to avoid local minima##
+##Store the total within sum of squares##
+
+for(b in 1:BS) {
+  for(k in 1:kmax) {
+    index = sample(1:n, replace = T)
+    X_2 = X.new[index, ]
+    fit <- kmeans(X_2, centers = k, nstart = 4)
+    result[b,k] = fit$tot.withinss 
+  }
+}
+
+##compute summaries from our output to get a feeling for what k to use (summaries for the within SS for each k)## 
+apply(result,2,summary)
+
+##Compute the 2.5%, 50% and 97.5% quantiles of the statistic for each k 
+withinss = apply(result, 2, quantile, probs=c(0.025, 0.5, 0.975)); withinss
+matplot(t(withinss))
 ```
+<img src="https://user-images.githubusercontent.com/31917400/32550190-153fc842-c484-11e7-8e46-2c4f7d96a61b.jpg" />
+
+> In this bootstrap simulation, the 95% bootstrap intervals for the withinSS start to overlap once k is 12 of larger. This means we have little evidence of needing more than 12 groups to cluster our dataset. 
 
 
 -------------------------------------------------------------------------------
