@@ -99,25 +99,26 @@ __Story:__ We want to analyze the data to establish if there are clusters of ath
 X.new = X[, 1:10]
 plot(X.new) 
 
-##Setting the limit of K=6##
+##Setting the limit (k=6)##
 WGSS = rep(0,6) 
 n = nrow(X.new)
 
 ##If k=1, add up all SS. What we calulate here is variance so take off the bottom of variance ==> (n-1)##
 WGSS[1] = (n-1)*sum(apply(X.new, 2, var))
 
-##WGSS was designed to store up each SS in accordance with different k!
+##WGSS was designed to store up each 'Within cluster(group) sum of squares' in accordance with different k##
 for(k in 2:6){
-  WGSS[k] <- sum(kmeans(X.new, centers = k)$withinss) # Within cluster(group) sum of squares by cluster..
+  WGSS[k] <- sum(kmeans(X.new, centers = k)$withinss) 
 } 
 
-#Plotting k versus WGSS. We can find the best k that is shown by the elbow in the curve.
+#Plotting k versus WGSS##
 plot(1:6, WGSS, type = 'b', xlab = 'k', ylab = 'wgSS')
 ```
 **The k versus WGSS plot suggests k = 2 is the best clustering solution.**
 <img src="https://user-images.githubusercontent.com/31917400/32524508-09c66fdc-c418-11e7-9b0e-9e304ab9fc8c.jpeg" width="600" height="300" />
 
-- **[Investigation I: Are those similar lap speeds associated with races-IAU/OP/WMA? (k=3)']**
+- **[Investigation I: Are those similar lap speeds associated with races-IAU/OP/WMA? (k=3)]**
+More precisely, we compare the clustering result with the “class” variable in the original dataset, using cross tabulation and Rand Index.  
 ```
 ## kmeans() takes the dataset (k=3)##
 kmcl.X <- kmeans(X.new, centers = 3, nstart = 100); kmcl.X 
@@ -139,8 +140,13 @@ tab <- table(colvec.race, kmcl.X$cluster); tab
 classAgreement(tab)
 ```
 
-**As we expected, the Silhouette plot reveals unreliability of the k=3 clustering result by presenting the negative silhouette width in the second cluster.**
+**As we expected, the Silhouette plot reveals unreliability of the k=3 clustering result by presenting the negative silhouette width in the second cluster** (rand index value: 0.5782136). As seen in the output as follows, there is no consistency in the matching pattern between the actual clusters in the dataset and estimated clusters produced by k=3 means algorithm. Therefore, we can conclude that there is no notable connection between the recorded lap speed of athletes and the type of races - IAU, OP, WMA. 
+
 <img src="https://user-images.githubusercontent.com/31917400/32525455-73a66bce-c41c-11e7-9b8e-5bbd09ec8f13.jpg" />
+
+- **[Investigation II: Are those similar lap speeds associated with genders? (k=2)]**
+
+```
 
 
 
