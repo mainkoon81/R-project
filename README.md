@@ -266,8 +266,15 @@ exp(BETA)
 ```
 <img src="https://user-images.githubusercontent.com/31917400/32556787-44954a68-c498-11e7-8cac-8cdba3d95adc.jpg" width="600" height="560" />
 
-- **[Residual analysis]**
+- **[Obtaining Residual]**
+```
+##Plotting the predicted values versus the deviance residuals##
+plot(pred, residuals(fit, type = 'deviance')) 
 
+##Plotting the predicted values versus the pearson residuals##
+plot(pred, residuals(fit, type = 'pearson')) 
+```
+<img src="https://user-images.githubusercontent.com/31917400/32558345-6bc06d58-c49c-11e7-82cf-baf11f456114.jpeg" width="600" height="200" />
 
 
 
