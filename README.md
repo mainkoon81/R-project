@@ -220,7 +220,7 @@ matplot(t(withinss))
 
 <img src="https://user-images.githubusercontent.com/31917400/32504026-b28a518e-c3d6-11e7-93b6-9c8ad96a3d8a.jpg" />
 
-__Data:__ Within the 'MASS' library, there is a dataset called 'birthwt' collected at Baystate Medical Center, Springﬁeld, MA during 1986. UCD data mining class provided this dataset to practice logistic regression.  
+__Data:__ Within the 'MASS' library, there is a dataset called 'birthwt' collected at Baystate Medical Center, Springﬁeld, MA during 1986. UCD data mining class provided this chance to practice logistic regression.  
 
 __Story:__ No story, Just practice logistic regression! 
   - 'low' indicator of birth weight less than 2.5kg 
@@ -232,14 +232,41 @@ __Story:__ No story, Just practice logistic regression!
   - 'ht' history of hypertension (1=Yes, 0=No) ////////////////////////////categorical
   - 'ui' presence of uterine irritability (1=Yes, 0=No) ///////////////////categorical
   - 'ftv' number of physician visits during the ???rst trimester (0, 1, 2, ...)
-  - 'bwt' baby weight? so save it for later..
+  - 'bwt' baby weight? It's a response variable, so save it for later.
+
 
 #### *|Basic Logistic Regression|*
 
 <img src="https://user-images.githubusercontent.com/31917400/32555369-6fc669be-c494-11e7-97d6-edc6c417ad7b.jpg" />
 
 ```
+#Ensure that "any categorical variables" are coded as factors##
+birthwt$race = as.factor(birthwt$race)
+birthwt$smoke = as.factor(birthwt$smoke)
+birthwt$ht = as.factor(birthwt$ht)
+birthwt$ui = as.factor(birthwt$ui)
+fit <- glm(low~age+lwt+race+smoke+ptl+ht+ui+ftv, data=birthwt, family = 'binomial'); summary(fit)
 
+##the fitted value from the model, but it is still the values of "log odd"## 
+pred <- predict(fit); head(pred, 10) 
+##the fitted value from the model, and the final predicted probabilities by each row
+pred <- predict(fit, type = 'response'); head(pred, 10) 
+
+##Extract the coefficients of the model and Compute the probabilities## 
+beta<-coef(fit)
+exp(beta)
+##Compute a 95% confidence interval for coefficients & probabilities. qt()is a t-statisitics..
+summ<-summary(fit)
+betaLB<-summ$coef[,1] - qt(0.975,summ$df.residual)*summ$coef[,2] 
+betaUB<-summ$coef[,1] + qt(0.975,summ$df.residual)*summ$coef[,2]
+##Store coefficients & confidence limits in matrix (BETA)## 
+BETA<-cbind(betaLB,beta,betaUB)
+##Compute the odds & confidence limits for the odds## 
+exp(BETA)
+```
+<img src="https://user-images.githubusercontent.com/31917400/32556787-44954a68-c498-11e7-8cac-8cdba3d95adc.jpg" />
+
+- **[Residual analysis]**
 
 
 
