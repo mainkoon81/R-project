@@ -95,9 +95,29 @@ __Story:__ We want to analyze the data to establish if there are clusters of ath
 
 - **[Searching the best 'K']**
 ```
+##Extracting the numerical variables of interest##
 X.new = X[, 1:10]
-plot(X.new) #extracting the numerical variables of interest#
+plot(X.new) 
 
+##Setting the limit of K=6##
+WGSS = rep(0,6) 
+n = nrow(X.new)
+
+##If k=1, add up all SS. What we calulate here is variance so take off the bottom of variance ==> (n-1)##
+WGSS[1] = (n-1)*sum(apply(X.new, 2, var))
+
+##WGSS was designed to store up each SS in accordance with different k!
+for(k in 2:6){
+  WGSS[k] <- sum(kmeans(X.new, centers = k)$withinss) # Within cluster(group) sum of squares by cluster..
+} 
+
+#Plotting k versus WGSS. We can find the best k that is shown by the elbow in the curve.
+plot(1:6, WGSS, type = 'b', xlab = 'k', ylab = 'wgSS')
+```
+**The k versus WGSS plot suggests k = 2 is the best clustering solution.**
+<img src="https://user-images.githubusercontent.com/31917400/32524508-09c66fdc-c418-11e7-9b0e-9e304ab9fc8c.jpeg" width="600" height="300" />
+
+- **[Searching the best 'K']**
 
 
 
