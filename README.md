@@ -117,7 +117,38 @@ plot(1:6, WGSS, type = 'b', xlab = 'k', ylab = 'wgSS')
 **The k versus WGSS plot suggests k = 2 is the best clustering solution.**
 <img src="https://user-images.githubusercontent.com/31917400/32524508-09c66fdc-c418-11e7-9b0e-9e304ab9fc8c.jpeg" width="600" height="300" />
 
-- **[Searching the best 'K']**
+- **[Investigation I: Are those similar lap speeds associated with races-IAU/OP/WMA? (k=3)']**
+```
+##kmeans() takes the dataset (k=3)##
+kmcl.X <- kmeans(X.new, centers = 3, nstart = 100); kmcl.X 
+table(kmcl.X$cluster)
+
+#let's assess the output of k-means clustering using silhouette.
+library(cluster)
+#find a dissimilarity matrix using "squared Euclidean distance"!
+dist.lap <- dist(X.new, 'euclidean')^2; dist.lap
+
+
+
+#compute the silhouette for each obv..
+sil.race <- silhouette(kmcl.X$cluster, dist.lap); plot(sil.race)
+
+#when k=3, compare the clustering results to the class: races.
+colvec.race <- as.numeric(X[,11]); colvec.race #real....extract level vectors
+kmcl.X$cluster #estimation 
+
+# fuck... too many variables...don't plot...
+plot(X.new, col=colvec.race, pch=kmcl.X$cluster)
+
+#tabulate the results
+tab <- table(colvec.race, kmcl.X$cluster); tab
+
+#Compute the Rand and adjusted Rand indices 
+library(e1071)
+classAgreement(tab)
+```
+**As we expected, the Silhouette plot reveals unreliability of the k=3 clustering result by presenting the negative silhouette width in the second cluster.**
+<img src="https://user-images.githubusercontent.com/31917400/32525455-73a66bce-c41c-11e7-9b8e-5bbd09ec8f13.jpg" />
 
 
 
