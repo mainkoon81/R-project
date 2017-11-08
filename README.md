@@ -119,34 +119,26 @@ plot(1:6, WGSS, type = 'b', xlab = 'k', ylab = 'wgSS')
 
 - **[Investigation I: Are those similar lap speeds associated with races-IAU/OP/WMA? (k=3)']**
 ```
-##kmeans() takes the dataset (k=3)##
+## kmeans() takes the dataset (k=3)##
 kmcl.X <- kmeans(X.new, centers = 3, nstart = 100); kmcl.X 
 table(kmcl.X$cluster)
 
-#let's assess the output of k-means clustering using silhouette.
-library(cluster)
-#find a dissimilarity matrix using "squared Euclidean distance"!
-dist.lap <- dist(X.new, 'euclidean')^2; dist.lap
+##Assessing the output of k-means clustering using silhouette and finding a 'dissimilarity matrix' using 'squared Euclidean distance'##
+dist.lap <- dist(X.new, 'euclidean')^2
 
-
-
-#compute the silhouette for each obv..
+##Computing the silhouette for each observation.##
 sil.race <- silhouette(kmcl.X$cluster, dist.lap); plot(sil.race)
 
-#when k=3, compare the clustering results to the class: races.
-colvec.race <- as.numeric(X[,11]); colvec.race #real....extract level vectors
-kmcl.X$cluster #estimation 
+##when k=3, in order to compare the clustering results to the class, we extract the column: "races"##
+colvec.race <- as.numeric(X[,11])
 
-# fuck... too many variables...don't plot...
-plot(X.new, col=colvec.race, pch=kmcl.X$cluster)
-
-#tabulate the results
+##tabulating the results##
 tab <- table(colvec.race, kmcl.X$cluster); tab
 
-#Compute the Rand and adjusted Rand indices 
-library(e1071)
+##Computing the Rand and adjusted Rand indices## 
 classAgreement(tab)
 ```
+
 **As we expected, the Silhouette plot reveals unreliability of the k=3 clustering result by presenting the negative silhouette width in the second cluster.**
 <img src="https://user-images.githubusercontent.com/31917400/32525455-73a66bce-c41c-11e7-9b8e-5bbd09ec8f13.jpg" />
 
