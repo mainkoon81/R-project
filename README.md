@@ -13,7 +13,7 @@ __Lab-02.__ Clustering
   - func: `kmean()`,  
 
 __Lab-03.__ Regression 
-  - package: 
+  - package: MASS, binomTools, ROCR
   - func:
 
 ----------------------------------------------------------------------
@@ -91,7 +91,7 @@ __Story:__ We want to analyze the data to establish if there are clusters of ath
 
 <img src="https://user-images.githubusercontent.com/31917400/32523548-adc68248-c413-11e7-88f0-861e2bad997c.jpg" />
 
-- __issue:__ We can see that there are two levels - male, female - in the “Sex” variable and three levels - IAU, OP, WMA - in the “Class” variable. We’d like to see that if our result of clustering analysis would correspond to those levels. But how many “k” do we need? K=2 or K=3 ? We want to make our clusters as tight as possible in order to improve the accuracy of our clustering analysis and this goal seems to be achievable by minimizing Sum of Squares. Interestingly, the value of Sum of Squares diminishes as we have more clusters which is represented by the value of “k.” Therefore, what we need is the plot of “k”values against the Sum of Squares so that we can find the elbow of the curve that manifesting the most desirable ‘”k” value. 
+- __issue:__ We can see that there are two levels - male, female - in the “sex” variable and three levels - IAU, OP, WMA - in the “class” variable. We’d like to see that if our result of clustering analysis would correspond to those levels. But how many “k” do we need? K=2 or K=3 ? We want to make our clusters as tight as possible in order to improve the accuracy of our clustering analysis and this goal seems to be achievable by minimizing Sum of Squares. Interestingly, the value of Sum of Squares diminishes as we have more clusters which is represented by the value of “k.” Therefore, what we need is the plot of “k”values against the Sum of Squares so that we can find the elbow of the curve that manifesting the most desirable ‘”k” value. 
 
 - **[Exploration : Searching the best 'K'?]**
 ```
@@ -167,9 +167,20 @@ tab <- table(colvec.gen, kmcl.X$cluster); tab
 classAgreement(tab)
 ```
 
-In this plot below, there is no negative silhouette width and we can say that k=2 means clustering works better (rand index value: 0.5048549). However, the two rand index results 0.5782136 (k=3), and 0.5048549 (k=2) are not that different and not that close to '1'. Can we say the 'race' and 'gender' do not offer absolute help in predicting speed of athletes?     
+In this plot below, there is no negative silhouette width and we can say that k=2 means clustering works better (rand index value: 0.5048549). However, it seems that the 'clusters' k=2 means algorithm produced and the 'clusters' defined by sex-column in the actual dataset do not agree with each other. In addition, the two rand index results 0.5782136 (k=3), and 0.5048549 (k=2) are not that different and not that close to '1'(so not super reliable). Can we say the 'race(class)' and 'gender(sex)' do not offer absolute help in predicting speed of athletes?     
 
 <img src="https://user-images.githubusercontent.com/31917400/32546386-d3b04c6a-c476-11e7-80f0-97ff7659b5ed.jpg" />
+
+> When we did k-means clustering, we used the total within sum of squares to choose an appropriate value of k, but It was diﬃcult to decide when there was an “elbow” in the plot. We could use **bootstrapping to estimate the variability of the within sum of squares.** We could then use the values to establish what value of k might be most appropriate.
+
+<img src="https://user-images.githubusercontent.com/31917400/32548095-5fac9912-c47c-11e7-958b-4f9c5782f28a.JPG" />
+
+```
+
+
+
+```
+
 
 -------------------------------------------------------------------------------
 #### >Lab-03. Regression
