@@ -292,6 +292,19 @@ X2GOFtest(Rsq(fit))
 
 - **[Performance]**
 
+```
+##Take the predicted probabilities and the observed response patterns## 
+predobj = prediction(pred, birthwt$low)
+
+##Complete the TPR and FPR for the model (as the threshold varies)##
+perf = performance(predobj, 'tpr', 'fpr')
+
+##the ROC curve##
+plot(perf)
+```
+<img src="https://user-images.githubusercontent.com/31917400/32559603-778d757e-c49f-11e7-970d-ca0301c9ef5d.jpeg" width="600" height="310" />
+
+
 
 
 
