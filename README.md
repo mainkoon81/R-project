@@ -93,7 +93,7 @@ __Story:__ We want to analyze the data to establish if there are clusters of ath
 
 - __issue:__ We can see that there are two levels - male, female - in the “Sex” variable and three levels - IAU, OP, WMA - in the “Class” variable. We’d like to see that if our result of clustering analysis would correspond to those levels. But how many “k” do we need? K=2 or K=3 ? We want to make our clusters as tight as possible in order to improve the accuracy of our clustering analysis and this goal seems to be achievable by minimizing Sum of Squares. Interestingly, the value of Sum of Squares diminishes as we have more clusters which is represented by the value of “k.” Therefore, what we need is the plot of “k”values against the Sum of Squares so that we can find the elbow of the curve that manifesting the most desirable ‘”k” value. 
 
-- **[Searching the best 'K']**
+- **[Exploration : Searching the best 'K'?]**
 ```
 ##Extracting the numerical variables of interest##
 X.new = X[, 1:10]
