@@ -240,7 +240,7 @@ __Story:__ No story, Just practice logistic regression!
 <img src="https://user-images.githubusercontent.com/31917400/32555369-6fc669be-c494-11e7-97d6-edc6c417ad7b.jpg" width="600" height="110" />
 
 ```
-#Ensure that "any categorical variables" are coded as factors##
+##Ensure that "any categorical variables" are coded as factors##
 birthwt$race = as.factor(birthwt$race)
 birthwt$smoke = as.factor(birthwt$smoke)
 birthwt$ht = as.factor(birthwt$ht)
