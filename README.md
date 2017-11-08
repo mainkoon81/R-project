@@ -167,39 +167,9 @@ tab <- table(colvec.gen, kmcl.X$cluster); tab
 classAgreement(tab)
 ```
 
-In this plot below, there is no negative silhouette width and we can say that k=2 means clustering works ok (rand index value: 0.5048549). 
+In this plot below, there is no negative silhouette width and we can say that k=2 means clustering works better (rand index value: 0.5048549). However, the two rand index results 0.5782136 (k=3), and 0.5048549 (k=2) are not that different and not that close to '1'. Can we say the 'race' and 'gender' do not offer absolute help in predicting speed of athletes?     
 
 <img src="https://user-images.githubusercontent.com/31917400/32546386-d3b04c6a-c476-11e7-80f0-97ff7659b5ed.jpg" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 -------------------------------------------------------------------------------
 #### >Lab-03. Regression
